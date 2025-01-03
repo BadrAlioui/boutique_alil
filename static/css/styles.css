@@ -26,6 +26,10 @@ body {
     align-items: center;
 }
 
+#delivery-banner {
+    color: white;
+}
+
 main {
     flex-grow: 1;
     margin: 0;
