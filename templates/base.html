@@ -58,8 +58,8 @@
                                     class="dropdown-menu"
                                     aria-labelledby="user-options"
                                 >
-                                    <!-- prettier-ignore -->
-                                    {% if request.user.is_authenticated %} 
+                                    <!--prettier-ignore-->
+                                    {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                     <li>
                                         <a class="dropdown-item" href="#"
@@ -139,8 +139,9 @@
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <!-- prettier-ignore -->
-                    {% include 'includes/mobile-top-header.html' %} {% include 'includes/main-nav.html' %}
+                    <!--prettier-ignore-->
+                    {% include 'includes/main-nav.html' %}
+                    {% include 'includes/mobile-top-header.html' %}
                 </nav>
             </div>
             <div id="delivery-banner" class="row text-center">
