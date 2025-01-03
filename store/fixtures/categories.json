@@ -1,2 +1,26 @@
-
-[{"pk": 1, "model": "store.category", "fields": {"name": "activewear", "friendly_name": "Activewear"}}, {"pk": 2, "model": "store.category", "fields": {"name": "bed_bath", "friendly_name": "Bed & Bath"}}, {"pk": 3, "model": "store.category", "fields": {"name": "clearance", "friendly_name": "Clearance"}}, {"pk": 4, "model": "store.category", "fields": {"name": "deals", "friendly_name": "Deals"}}, {"pk": 5, "model": "store.category", "fields": {"name": "essentials", "friendly_name": "Essentials"}}, {"pk": 6, "model": "store.category", "fields": {"name": "jeans", "friendly_name": "Jeans"}}, {"pk": 7, "model": "store.category", "fields": {"name": "kitchen_dining", "friendly_name": "Kitchen & Dining"}}, {"pk": 8, "model": "store.category", "fields": {"name": "new_arrivals", "friendly_name": "New Arrivals"}}, {"pk": 9, "model": "store.category", "fields": {"name": "shirts", "friendly_name": "Shirts"}}]
+[
+    {
+        "model": "store.category",
+        "pk": 1,
+        "fields": {
+            "name": "Electronics",
+            "slug": "electronics"
+        }
+    },
+    {
+        "model": "store.category",
+        "pk": 2,
+        "fields": {
+            "name": "Books",
+            "slug": "books"
+        }
+    },
+    {
+        "model": "store.category",
+        "pk": 3,
+        "fields": {
+            "name": "Clothing",
+            "slug": "clothing"
+        }
+    }
+]
