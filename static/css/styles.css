@@ -1,0 +1,25 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato';
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+main {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* rating */
+
+.fa-star {
+    color: gold;
+    margin-right: 9px;
+}
