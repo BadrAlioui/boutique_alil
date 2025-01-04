@@ -1,14 +1,44 @@
+
+
 html,
 body {
     margin: 0;
     padding: 0;
     font-family: 'Lato';
     box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    width: 100%;
     overflow-x: hidden;
+}
+/* Styles spécifiques pour la page d'accueil */
+.homepage-main {
+    background: url('/static/media/images/background-image.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Prend toute la hauteur visible */
+    width: 100%;       /* Prend toute la largeur */
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles globaux pour les autres pages */
+.container {
+    padding: 1rem;
+}
+
+.navbar {
+    margin: 0;
 }
 
 .navbar-nav .nav-link {
