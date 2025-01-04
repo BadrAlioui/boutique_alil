@@ -3,9 +3,15 @@ from .models import Category, Product
 
 # Register your models here.
 
-admin.site.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug']
 
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['title', 'brand', 'price', 'rating', 'image']
+    
 
-admin.site.register(Product)
+admin.site.register(Category, CategoryAdmin)
+
+admin.site.register(Product, ProductAdmin)
 
     
