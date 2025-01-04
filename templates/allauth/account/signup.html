@@ -1,45 +1,53 @@
-{% extends "account/base_entrance.html" %}
-{% load allauth i18n %}
-{% block head_title %}
-    {% trans "Signup" %}
-{% endblock head_title %}
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
-        </a>
-    {% endsetvar %}
-    {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
-                {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if PASSKEY_SIGNUP_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button href=signup_by_passkey_url tags="prominent,signup,outline,primary" %}
-            {% trans "Sign up using a passkey" %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
-{% endblock content %}
+
+
+<div class="auth-page m-5">
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        <h1>Sign Up</h1>
+
+        <p>Already have an account? Then please <a href="{% url 'account_login' %}">sign in</a>.</p>
+
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+        <!-- Username Field -->
+        <div class="form-group mb-3">
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="username" minlength="1" maxlength="150" required id="id_username">
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group mb-3">
+            <label for="id_email">Email (optional):</label>
+            <input type="email" name="email" class="form-control" placeholder="Email address" autocomplete="email" maxlength="320" id="id_email">
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group mb-3">
+            <label for="id_password1">Password:</label>
+            <input type="password" name="password1" class="form-control" placeholder="Password" autocomplete="new-password" required aria-describedby="id_password1_helptext" id="id_password1">
+            <div class="helptext mt-1" id="id_password1_helptext">
+                <ul>
+                    <li>Your password can’t be too similar to your other personal information.</li>
+                    <li>Your password must contain at least 8 characters.</li>
+                    <li>Your password can’t be a commonly used password.</li>
+                    <li>Your password can’t be entirely numeric.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Password Confirmation Field -->
+        <div class="form-group mb-3">
+            <label for="id_password2">Password (again):</label>
+            <input type="password" name="password2" class="form-control" placeholder="Password (again)" autocomplete="new-password" required id="id_password2">
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn btn-primary w-100" type="submit">Sign Up &raquo;</button>
+    </form>
+</div>
+{% endblock %}
