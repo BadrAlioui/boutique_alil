@@ -66,6 +66,35 @@ main {
     padding: 0;
 }
 
+
+.card {
+    height: 100%; /* Les cartes prennent toujours la même hauteur */
+    display: flex;
+    flex-direction: column; /* Empile les éléments verticalement */
+    justify-content: space-between; /* Équilibre le contenu */
+    
+}
+
+.card-img-top {
+    width: 100%; /* L'image prend toute la largeur disponible */
+    height: 400px; /* Hauteur fixe pour uniformiser toutes les images */
+    object-fit: cover; /* Les images sont redimensionnées pour remplir l'espace sans déformation */
+    border-bottom: 1px solid #ddd; /* (optionnel) Sépare l'image du corps de la carte */
+}
+
+.card-body {
+    flex-grow: 1; /* Prend l'espace disponible restant */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+
 /* rating */
 
 .fa-star {

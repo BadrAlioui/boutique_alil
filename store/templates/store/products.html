@@ -22,7 +22,7 @@
     <div class="row">
         {% for product in products %}
         <div class="col-lg-3 col-md-6">
-            <div class="card m-3">
+            <div class="card my-3">
                 <a href="#">
                     <img
                         src="{{ product.image.url }}"
@@ -35,7 +35,7 @@
                         <a
                             href="#"
                             class="text-decoration-none text-dark"
-                            >{{ product.description }}</a
+                            >{{ product.description|truncatewords:5 }}...</a
                         >
                     </h5>
                     <h6>${{product.price}}</h6>
@@ -48,16 +48,7 @@
                     <small class="text-muted">No Rating</small>
                     {% endif %}
                 </div>
-                <div class="card-footer">
-                    <a
-                        href="#"
-                        type="button"
-                        class="btn w-100 btn-outline-secondary"
-                        data-bs-target="#echarpeModal"
-                    >
-                        Buy
-                    </a>
-                </div>
+                
             </div>
         </div>
         {% endfor %}
