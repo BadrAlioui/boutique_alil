@@ -58,6 +58,18 @@ main {
     align-items: center;
 }
 
+.navbar .dropdown-menu {
+    border-radius: 0.5rem;
+    background-color: #f8f9fa; /* Couleur de fond légère */
+    border: 1px solid #ddd; /* Bordure discrète */
+}
+
+.dropdown-item:hover {
+    background-color: #007bff; /* Couleur au survol */
+    color: white;
+}
+
+
 #delivery-banner {
     color: white;
 }
