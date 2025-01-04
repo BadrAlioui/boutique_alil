@@ -23,7 +23,7 @@
         {% for product in products %}
         <div class="col-lg-3 col-md-6">
             <div class="card my-3">
-                <a href="#">
+                <a href="{% url 'product_detail' product.id %}">
                     <img
                         src="{{ product.image.url }}"
                         alt="{{ product.title }}"
@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <h5 class="card-text">
                         <a
-                            href="#"
+                            href="{% url 'product_detail' product.id %}"
                             class="text-decoration-none text-dark"
                             >{{ product.description|truncatewords:5 }}...</a
                         >
@@ -48,7 +48,16 @@
                     <small class="text-muted">No Rating</small>
                     {% endif %}
                 </div>
-                
+                <!-- <div class="card-footer">
+                    <a
+                        href="#"
+                        type="button"
+                        class="btn w-100 btn-outline-secondary"
+                        data-bs-target="#echarpeModal"
+                    >
+                        Buy
+                    </a>
+                </div> -->
             </div>
         </div>
         {% endfor %}

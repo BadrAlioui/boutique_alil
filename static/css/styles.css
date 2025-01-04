@@ -13,13 +13,15 @@ body {
 /* Styles spécifiques pour la page d'accueil */
 .homepage-main {
     background: url('/static/media/images/background-image.jpg');
-    background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Prend toute la hauteur visible */
+    height: 100vh;
     width: 100%;       /* Prend toute la largeur */
     color: white;
     padding: 0;

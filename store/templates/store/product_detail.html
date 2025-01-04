@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Colonne pour l'image -->
+        <div class="col-md-6">
+            <img
+                src="{{ product.image.url }}"
+                alt="{{ product.title }}"
+                class="img-fluid rounded shadow"
+            />
+        </div>
+
+        <!-- Colonne pour les détails -->
+        <div class="col-md-6">
+            <h1 class="mb-3">{{ product.title }}</h1>
+            <h4 class="text-muted mb-4">{{ product.brand }}</h4>
+            <p class="lead">{{ product.description }}</p>
+
+            <h3 class="text-primary mb-4">${{ product.price }}</h3>
+
+            {% if product.rating %}
+            <p>
+                <strong>Rating:</strong>
+                <span class="text-warning">
+                    <i class="fas fa-star"></i> {{ product.rating }} / 5
+                </span>
+            </p>
+            {% else %}
+            <p><strong>Rating:</strong> No rating available</p>
+            {% endif %}
+
+            <form method="POST" action="#">
+                {% csrf_token %}
+                <button class="btn btn-primary btn-lg w-100 mt-4" type="submit">
+                    Add to Cart
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Section pour les produits similaires -->
+    <hr class="my-5" />
+    <h3 class="text-center">Related Products</h3>
+    <div class="row">
+        {% for related_product in related_products %}
+        <div class="col-md-4">
+            <div class="card mt-4">
+                <a href="{% url 'product_detail' related_product.id %}">
+                    <img
+                        src="{{ related_product.image.url }}"
+                        alt="{{ related_product.title }}"
+                        class="card-img-top"
+                    />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ related_product.title }}</h5>
+                    <p class="card-text text-muted">${{ related_product.price }}</p>
+                    <a
+                        href="{% url 'product_detail' related_product.id %}"
+                        class="btn btn-outline-primary btn-sm"
+                        >View Details</a
+                    >
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
