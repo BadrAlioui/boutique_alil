@@ -81,6 +81,8 @@ main {
 }
 
 
+
+/* card */
 .card {
     height: 100%; /* Les cartes prennent toujours la même hauteur */
     display: flex;
@@ -105,9 +107,25 @@ main {
     text-align: center;
 }
 
-/* Formulaires globaux */
 
-.auth-page form {
+/* button */
+
+.btn-close.btn-danger {
+    background-color: #fcf9f9; 
+    border: 3px solid white;
+    
+    color: white;
+}
+
+.btn-close.btn-danger:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+}
+
+/* global form */
+
+.auth-page form,
+.contact-page form {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 30px;
     border-radius: 15px;
@@ -125,7 +143,8 @@ main {
     margin-bottom: 15px;
 }
 
-.auth-page label {
+.auth-page label,
+.contact-page label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
@@ -141,9 +160,15 @@ main {
 }
 
 
+/*icon*/
 
-/* rating */
+footer a {
+    text-decoration: none; 
+}
 
+footer a:hover {
+    text-decoration: underline; 
+    
 .fa-star {
     color: gold;
     margin-right: 9px;
