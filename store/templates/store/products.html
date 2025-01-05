@@ -17,6 +17,14 @@
 </section>
 <div class="container bg-primary-subtle">
     <h1 class="mt-3">All Products</h1>
+    {% if request.user.is_superuser %}
+    <div class="text-end mb-3">
+        <a href="{% url 'add_product' %}" class="btn btn-success">
+            <i class="fas fa-plus"></i> Add Product
+        </a>
+    </div>
+    {% endif %}
+    
     <br />
     <hr />
     <div class="row">
@@ -48,16 +56,16 @@
                     <small class="text-muted">No Rating</small>
                     {% endif %}
                 </div>
-                <!-- <div class="card-footer">
-                    <a
-                        href="#"
-                        type="button"
-                        class="btn w-100 btn-outline-secondary"
-                        data-bs-target="#echarpeModal"
-                    >
-                        Buy
-                    </a>
-                </div> -->
+                {% if request.user.is_superuser %}
+<div class="card-footer d-flex justify-content-between">
+    <a href="{% url 'update_product' product.id %}" class="btn btn-warning btn-sm">
+        <i class="fas fa-edit"></i> Edit
+    </a>
+    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm">
+        <i class="fas fa-trash"></i> Delete
+    </a>
+</div>
+{% endif %}
             </div>
         </div>
         {% endfor %}

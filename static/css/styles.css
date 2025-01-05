@@ -124,6 +124,7 @@ main {
 
 /* global form */
 
+.new-product form,
 .auth-page form,
 .contact-page form {
     background-color: rgba(255, 255, 255, 0.8);
@@ -143,6 +144,7 @@ main {
     margin-bottom: 15px;
 }
 
+.new-product label,
 .auth-page label,
 .contact-page label {
     display: block;
