@@ -3,7 +3,7 @@ from pathlib import Path
 from decouple import config
 import dj_database_url
 import django_heroku
-
+import sys
 
 import os
 import stripe
@@ -86,12 +86,25 @@ WSGI_APPLICATION = 'boutique_alil.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Configuration de la base de données
+if 'test' in sys.argv:
+    # Utilisation de SQLite pour les tests
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+        }
     }
+else:
+    # PostgreSQL pour le développement et la production
+   DATABASES = {
+    'default': dj_database_url.config(
+        default='postgres://ubop2sj85hgsdu:pa9ad10078713ac3b5bb4735d05cad57e624ccb1961b25d4dddb7c46a31347fc6@c9tiftt16dc3eo.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d4ghffq4l2295n',
+        conn_max_age=600,  # Maintient les connexions ouvertes pour de meilleures performances
+        ssl_require=False  # Désactive SSL si nécessaire
+    )
 }
+
 
 
 # Password validation

@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models.functions import Lower
+
 
 
 def admin_required(user):
