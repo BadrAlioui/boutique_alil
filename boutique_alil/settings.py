@@ -1,12 +1,15 @@
 
 from pathlib import Path
-from decouple import config
+from decouple import config, Csv
 import dj_database_url
 import django_heroku
 import sys
 
 import os
 import stripe
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -88,12 +91,12 @@ WSGI_APPLICATION = 'boutique_alil.wsgi.application'
 
 # Configuration de la base de données
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
+DATABASES['default'] = dj_database_url.config(default='postgres://ubop2sj85hgsdu:pa9ad10078713ac3b5bb4735d05cad57e624ccb1961b25d4dddb7c46a31347fc6@c9tiftt16dc3eo.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d4ghffq4l2295n')
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
