@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True)
@@ -29,3 +30,18 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.TextField()
+    reference = models.CharField(max_length=128)
+    date = models.DateTimeField(blank=True, null=True)
+    status = models.CharField(max_length=255, default="Created")
+    price = models.FloatField(default=0.0, blank=True)
+    
+
+    def __str__(self):
+        return f"Order by {self.user.username} - Status: {self.status}"
+
+    
