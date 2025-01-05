@@ -1,7 +1,9 @@
 
 from pathlib import Path
 from decouple import config
-from decouple import config
+import dj_database_url
+import django_heroku
+
 
 import os
 import stripe
@@ -17,7 +19,8 @@ import cloudinary.api
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y6m_j=@4ra0%p3-=we@)#$e_b0p9=5!t7idowut5xtrwm!jpju'
+SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -185,3 +188,8 @@ cloudinary.config(
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
+
+STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
