@@ -1,1 +1,1 @@
-web: gunicorn boutique_alil.wsgi --log-file -
+web: gunicorn boutique_alil.wsgi
