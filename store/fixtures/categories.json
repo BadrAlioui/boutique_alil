@@ -1,15 +1,8 @@
 [
+    
     {
         "model": "store.category",
         "pk": 1,
-        "fields": {
-            "name": "Electronics",
-            "slug": "electronics"
-        }
-    },
-    {
-        "model": "store.category",
-        "pk": 2,
         "fields": {
             "name": "Books",
             "slug": "books"
@@ -17,7 +10,7 @@
     },
     {
         "model": "store.category",
-        "pk": 3,
+        "pk": 2,
         "fields": {
             "name": "Clothing",
             "slug": "clothing"

@@ -3,168 +3,180 @@
         "model": "store.product",
         "pk": 7,
         "fields": {
-            "category": 2,
+            "category": 1,
             "title": "Thriller Novel",
             "brand": "N/A",
             "description": "A gripping thriller that keeps you on the edge of your seat.",
             "slug": "thriller-novel",
             "rating": 4.2,
             "price": "14.99",
-            "image": null
+            "image": null,
+            "stock": 50
         }
     },
     {
         "model": "store.product",
         "pk": 8,
         "fields": {
-            "category": 2,
+            "category": 1,
             "title": "Cooking Recipe Book",
             "brand": "N/A",
             "description": "Delicious recipes for home chefs.",
             "slug": "cooking-recipe-book",
             "rating": 4.6,
             "price": "24.99",
-            "image": null
+            "image": null,
+            "stock": 40
         }
     },
     {
         "model": "store.product",
         "pk": 9,
         "fields": {
-            "category": 2,
+            "category": 1,
             "title": "Science Fiction Novel",
             "brand": "N/A",
             "description": "Explore the future with this fascinating sci-fi novel.",
             "slug": "science-fiction-novel",
             "rating": 4.8,
             "price": "19.99",
-            "image": null
+            "image": null,
+            "stock": 60
         }
     },
     {
         "model": "store.product",
         "pk": 10,
         "fields": {
-            "category": 2,
+            "category": 1,
             "title": "Children's Storybook",
             "brand": "N/A",
             "description": "A heartwarming storybook for children of all ages.",
             "slug": "childrens-storybook",
             "rating": 4.5,
             "price": "12.99",
-            "image": null
+            "image": null,
+            "stock": 30
         }
     },
     {
         "model": "store.product",
         "pk": 11,
         "fields": {
-            "category": 2,
+            "category": 1,
             "title": "History Textbook",
             "brand": "N/A",
             "description": "An in-depth look at historical events.",
             "slug": "history-textbook",
             "rating": 4.4,
             "price": "34.99",
-            "image": null
+            "image": null,
+            "stock": 25
         }
     },
     {
         "model": "store.product",
         "pk": 12,
         "fields": {
-            "category": 2,
+            "category": 1,
             "title": "Fantasy Novel",
             "brand": "N/A",
             "description": "A captivating fantasy novel with magical adventures.",
             "slug": "fantasy-novel",
             "rating": 4.7,
             "price": "17.99",
-            "image": null
+            "image": null,
+            "stock": 45
         }
     },
     {
         "model": "store.product",
         "pk": 13,
         "fields": {
-            "category": 3,
+            "category": 2,
             "title": "Men's T-Shirt",
             "brand": "FashionWear",
             "description": "Comfortable cotton T-shirt for men.",
             "slug": "mens-tshirt",
             "rating": 4.3,
             "price": "19.99",
-            "image": null
+            "image": null,
+            "stock": 100
         }
     },
     {
         "model": "store.product",
         "pk": 14,
         "fields": {
-            "category": 3,
+            "category": 2,
             "title": "Women's Dress",
             "brand": "StylePro",
             "description": "Elegant evening dress for women.",
             "slug": "womens-dress",
             "rating": 4.6,
             "price": "59.99",
-            "image": null
+            "image": null,
+            "stock": 20
         }
     },
     {
         "model": "store.product",
         "pk": 15,
         "fields": {
-            "category": 3,
+            "category": 2,
             "title": "Unisex Hoodie",
             "brand": "CasualWear",
             "description": "Comfortable hoodie for everyday wear.",
             "slug": "unisex-hoodie",
             "rating": 4.5,
             "price": "39.99",
-            "image": null
+            "image": null,
+            "stock": 75
         }
     },
     {
         "model": "store.product",
         "pk": 16,
         "fields": {
-            "category": 3,
+            "category": 2,
             "title": "Jeans for Women",
             "brand": "DenimWorld",
             "description": "High-quality denim jeans for women.",
             "slug": "jeans-for-women",
             "rating": 4.7,
             "price": "49.99",
-            "image": null
+            "image": null,
+            "stock": 60
         }
     },
     {
         "model": "store.product",
         "pk": 17,
         "fields": {
-            "category": 3,
+            "category": 2,
             "title": "Formal Shirt",
             "brand": "OfficeStyle",
             "description": "Stylish formal shirt for office wear.",
             "slug": "formal-shirt",
             "rating": 4.4,
             "price": "29.99",
-            "image": null
+            "image": null,
+            "stock": 50
         }
     },
     {
         "model": "store.product",
         "pk": 18,
         "fields": {
-            "category": 3,
+            "category": 2,
             "title": "Running Shoes",
             "brand": "SportsGear",
             "description": "Lightweight and durable running shoes.",
             "slug": "running-shoes",
             "rating": 4.8,
             "price": "79.99",
-            "image": null
+            "image": null,
+            "stock": 40
         }
     }
 ]

@@ -24,6 +24,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2,
                                 validators=[MinValueValidator(0.1)])
     image = CloudinaryField('image', null=True, blank=True)
+    stock = models.IntegerField(default=0, blank=True, verbose_name="Stock du produit")
 
     class Meta:
         verbose_name_plural = "products"

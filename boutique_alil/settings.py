@@ -89,14 +89,21 @@ WSGI_APPLICATION = 'boutique_alil.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# Configuration de la base de données
-DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
-}
+if 'test' in sys.argv:
+    # Utilisation de SQLite pour les tests
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+        }
+    }
 
-DATABASES['default'] = dj_database_url.config(default='postgres://ubop2sj85hgsdu:pa9ad10078713ac3b5bb4735d05cad57e624ccb1961b25d4dddb7c46a31347fc6@c9tiftt16dc3eo.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d4ghffq4l2295n')
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+else:
+    # PostgreSQL pour le développement et la production
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgres://ubop2sj85hgsdu:pa9ad10078713ac3b5bb4735d05cad57e624ccb1961b25d4dddb7c46a31347fc6@c9tiftt16dc3eo.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d4ghffq4l2295n')
+    }
 
 
 # Password validation
@@ -194,7 +201,7 @@ STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
-STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
+# STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
