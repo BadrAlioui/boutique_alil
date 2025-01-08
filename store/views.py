@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
+from django.conf import settings
 from django.db.models import Q
 from .models import Product, Category, Order
 from .forms import ProductForm
