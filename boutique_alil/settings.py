@@ -14,9 +14,7 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -39,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary',
+    
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -88,7 +86,6 @@ WSGI_APPLICATION = 'boutique_alil.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 if 'test' in sys.argv:
     # Utilisation de SQLite pour les tests
     DATABASES = {
@@ -102,7 +99,9 @@ else:
     # PostgreSQL pour le développement et la production
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgres://ubop2sj85hgsdu:pa9ad10078713ac3b5bb4735d05cad57e624ccb1961b25d4dddb7c46a31347fc6@c9tiftt16dc3eo.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d4ghffq4l2295n')
+            default='postgres://u2uourpjpgteub:pa07539ec739b0030d581b6f7ac7da11dd3878b82e7bc3d3484c01857434e2c1c@cah8ha8ra8h8i7.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com:5432/d5l3p4vb4sqkcu')
+
+        
     }
 
 
@@ -145,6 +144,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+
+
 # https://whitenoise.readthedocs.io/en/stable/django.html
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
@@ -154,6 +157,8 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+
 
 AUTHENTICATION_BACKENDS = [
     
@@ -189,12 +194,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cloudinary -Django integration
 
-
-cloudinary.config(
-    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
-    api_key=config('CLOUDINARY_API_KEY'),
-    api_secret=config('CLOUDINARY_API_SECRET')
-)
 
 
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
