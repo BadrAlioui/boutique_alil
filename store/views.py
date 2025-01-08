@@ -193,7 +193,7 @@ def process_payment(request, slug):
                 'product_data': {
                     'name': product.title,
                     'description': product.description,
-                    'images': [product.image.url] if product.image else [],  
+                    'images': request.build_absolute_uri[product.image.url] if product.image else [],  
                 },
             },
             'quantity': 1,
