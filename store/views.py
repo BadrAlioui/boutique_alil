@@ -150,6 +150,7 @@ def payment_cancel(request, reference):
 @login_required(login_url='/accounts/login/')
 def process_payment(request, slug):
     """Vue pour traiter le paiement avec Stripe"""
+    stripe.api_key = settings.STRIPE_SECRET_KEY
     product = get_object_or_404(Product, slug=slug)
     user = request.user
 
